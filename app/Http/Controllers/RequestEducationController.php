@@ -14,7 +14,6 @@ class RequestEducationController extends Controller
     }
 
     public function add(){
-
         if(request()->isMethod('POST')){
             $this->validate(request(), [
                 'name' => 'required|min:3|max:15',
@@ -32,5 +31,18 @@ class RequestEducationController extends Controller
             return redirect()->route('request-education');
         }
         return view('home.pages.request-education');
+    }
+
+    public function adminAll(){
+        $requests = RequestEducation::all()->sortByDesc('created_at');
+
+        return view('admin.pages.user.request-education.index', compact('requests'));
+    }
+
+    public function adminDelete($vid){
+        RequestEducation::destroy($vid);
+
+        return redirect()->route('request-education-list');
+
     }
 }

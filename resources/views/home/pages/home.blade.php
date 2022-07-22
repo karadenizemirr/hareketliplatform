@@ -10,6 +10,21 @@
     <div id="slider" class="inspiro-slider slider-fullscreen" data-height-xs="360">
         <!-- Slide 1 -->
         <div class="slide" style="
+        background-image:url('{{URL::asset('assets/user/images/slider-2.jpg')}}');">
+            <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="slide-captions">
+                    <!-- Captions -->
+                    <h2 class="text-light m-b-10">HAREKETLİ PLATFORM</h2>
+                    <h4 class="m-b-40 text-light m-b-10">Çeşitli ödeme opsiyonları, satış, kiralama ve ikinci el ürün opsiyonlarıyla hizmetinizdeyiz..</h4>
+                    <a class="btn btn-warning text-black-50"><i class="fa fa-check"></i>Bizimile İletişime Geçin</a>
+                    <!-- end: Captions -->
+                </div>
+
+            </div>
+
+        </div>
+        <div class="slide" style="
         background-image:url('{{URL::asset('assets/user/images/slider-image.jpg')}}');">
             <div class="bg-overlay"></div>
             <div class="container">

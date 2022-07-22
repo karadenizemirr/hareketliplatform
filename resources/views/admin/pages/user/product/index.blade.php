@@ -40,8 +40,11 @@
                                 <td>{{$product->name}}</td>
                                 <td>{{$product->created_at}}</td>
                                 <td>
-                                    <a href="{{route('category-delete', $product->id)}}" class="badge badge-danger">
+                                    <a href="{{route('product-delete', $product->id)}}" class="badge badge-danger">
                                         Sil
+                                    </a>
+                                    <a href="{{route('product-add-update', $product->id)}}" class="badge badge-success">
+                                        Düzenle
                                     </a>
                                 </td>
                             </tr>

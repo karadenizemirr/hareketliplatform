@@ -15,8 +15,6 @@ class UserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function register(){
-
-
         if(request()->isMethod('POST')){
             $this->validate(request(), [
                 'name' => 'required|min:5|max:15',
@@ -39,7 +37,7 @@ class UserController extends Controller
 
             return redirect()->route('login');
         }
-        return view('register');
+        return view('admin.pages.user.add');
     }
 
     public function login(){

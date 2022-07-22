@@ -8,58 +8,58 @@
                 <div class="col-lg-6">
                     <h3 class="text-uppercase">İletişime Geçin</h3>
                     <p>Mesajınızı bizlere iletin bizler sizi arayalım.</p>
+                    @include('admin.base.errors')
                     <div class="m-t-30">
-                        <form class="widget-contact-form" action="include/contact-form-attachment.php" role="form" method="post" enctype="multipart/form-data">
+                        <form action="{{route('contact')}}" method="post">
+                            {{csrf_field()}}
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="name">Name</label>
-                                    <input type="text" aria-required="true" name="widget-contact-form-name" class="form-control name" placeholder="Enter your Name">
+                                    <label>Adınız</label>
+                                    <input type="text" class="form-control" name="name" id="name" >
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="email">Email</label>
-                                    <input type="email" aria-required="true" required name="widget-contact-form-email" class="form-control email" placeholder="Enter your Email">
+                                    <label>Soyadınız</label>
+                                    <input type="text" class="form-control" name="surname" id="surname">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-12">
-                                    <label for="subject">Your Subject</label>
-                                    <input type="text" name="widget-contact-form-subject" class="form-control" placeholder="Subject...">
+                                <div class="form-group col-md-6">
+                                    <label>Telefon Numarası</label>
+                                    <input type="text" class="form-control" name="phone_number" id="phone_number" >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Mail Adresi</label>
+                                    <input type="text" class="form-control" name="email" id="email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="">Konu</label>
+                                    <input type="text" class="form-control" name="subject" id="subject" >
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea type="text" name="widget-contact-form-message" rows="5" class="form-control " placeholder="Enter your Message"></textarea>
+                                <label for="">Mesajınız</label>
+                                <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="message">Attachment file<small>*</small></label>
-                                <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-                                <input type="file" aria-required="true" name="widget-contact-form-attachment" class="form-control required" />
+                                <button class="btn btn-warning text-black-50" type="submit" >
+                                    Mesajı Gönder
+                                </button>
                             </div>
-                            <!--   <div class="form-group">
-                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                                <div class="g-recaptcha" data-sitekey="6LddCxAUAAAAAKOg0-U6IprqOZ7vTfiMNSyQT2-M"></div>
-                            </div> -->
-                            <button class="btn btn-primary" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Send message</button>
+
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h3 class="text-uppercase">Address & Map</h3>
+                    <h3 class="text-uppercase">Adres Bilgileri</h3>
                     <div class="row">
                         <div class="col-lg-6">
                             <address>
-                                <strong>Polo, Inc.</strong><br>
+                                <strong>Hareketli Platform.</strong><br>
                                 795 Folsom Ave, Suite 600<br>
                                 San Francisco, CA 94107<br>
-                                <abbr title="Phone">P:</h4> (123) 456-7890
-                            </address>
-                        </div>
-                        <div class="col-lg-6">
-                            <address>
-                                <strong>Polo Office</strong><br>
-                                795 Folsom Ave, Suite 600<br>
-                                San Francisco, CA 94107<br>
-                                <abbr title="Phone">P:</h4> (123) 456-7890
+                                <abbr title="Phone">Telefon Numarası: (123) 456-7890
                             </address>
                         </div>
                     </div>

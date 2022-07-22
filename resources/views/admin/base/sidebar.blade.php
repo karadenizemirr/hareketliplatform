@@ -53,48 +53,62 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">Taleper</li>
                 <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
+                    <a href="{{route('fault-medicine-add')}}" class="nav-link">
+                        <i class="nav-icon fa fa-light fa-bomb"></i>
+                        <p>
+                            Arza Tipi Ekle
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">Talepler</li>
+                <li class="nav-item">
+                    <a href="{{route('request-education-list')}}" class="nav-link">
+                        <i class="nav-icon fa fa-light fa-bomb"></i>
                         <p>Eğitim Talepleri</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
+                    <a href="{{route('request-service-list')}}" class="nav-link">
                         <i class="nav-icon fas fa-ellipsis-h"></i>
                         <p>Servis Talepleri</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
+                    <a href="{{route('contact-list')}}" class="nav-link">
                         <i class="nav-icon fas fa-ellipsis-h"></i>
                         <p>İletişim Talepleri</p>
                     </a>
                 </li>
+                <li class="nav-header">Haberler</li>
+                <li class="nav-item">
+                    <a href="{{route('news-list')}}" class="nav-link">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>Haber İşlemleri</p>
+                    </a>
+                </li>
                 <li class="nav-header">Projeler ve Referanslar</li>
                 <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
+                    <a href="{{route('project-list')}}" class="nav-link">
                         <i class="nav-icon fas fa-ellipsis-h"></i>
                         <p>Projeler</p>
                     </a>
                 </li>
-                <li class="nav-header">Çözümler</li>
-                <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
-                        <p>Çözümler</p>
-                    </a>
-                </li>
                 <li class="nav-header">Site Ayarları</li>
                 <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
+                    <a href="{{route('slider-list')}}" class="nav-link">
+                        <i class="nav-icon fas fa-ellipsis-h"></i>
+                        <p>Slider Ayarları</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('single-page-list')}}" class="nav-link">
                         <i class="nav-icon fas fa-ellipsis-h"></i>
                         <p>Sayfa Oluşturucu</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
+                    <a href="{{route('me-contact-add-update')}}" class="nav-link">
                         <i class="nav-icon fas fa-ellipsis-h"></i>
                         <p>İletişim Ayarları</p>
                     </a>

@@ -17,8 +17,7 @@ class ProductController extends Controller
     public function add($vid=0)
     {
         $categories = ModelsCategory::all()->sortByDesc('created_at');
-        $request_data = request()->only('name', 'slug', 'description', 'technique_detail', 'platform_detail',
-            'safety_features', 'configuration', 'components','other_detail', 'product_image');
+
 
         if($vid > 0){
             $product = ModelsProduct::find($vid);
@@ -26,7 +25,9 @@ class ProductController extends Controller
             // Update Operations
 
             if (request()->isMethod('POST')){
-                redirect()->route('product-list');
+                $request_data = request()->only('name', 'slug', 'description', 'technique_detail', 'platform_detail',
+                    'safety_features', 'configuration', 'components','other_detail', 'product_image');
+                #redirect()->route('product-list');
                 $add_product = ModelsProduct::where('id', $vid)->firstOrFail();
                 $add_product->update($request_data);
                 $add_product->categories()->sync(request()->categories);
@@ -38,6 +39,8 @@ class ProductController extends Controller
         }
 
         if(request()->isMethod('POST')){
+            $request_data = request()->only('name', 'slug', 'description', 'technique_detail', 'platform_detail',
+                'safety_features', 'configuration', 'components','other_detail', 'product_image');
             // Validate
             $this->validate(request(), [
                'name' => 'required|unique:product',
@@ -45,7 +48,7 @@ class ProductController extends Controller
                'categories' => 'required'
             ]);
 
-            if (\request()->filled('slug')){
+            if (\request('slug') == null){
                 $request_data['slug'] = str_slug(request('name'));
             }
             if(\request()->hasFile('product_image')){
@@ -62,7 +65,6 @@ class ProductController extends Controller
                 }
             }
 
-
             $add_product = ModelsProduct::create($request_data);
             $add_product->categories()->attach(request('categories'));
             return redirect()->route('product-list');
@@ -70,5 +72,10 @@ class ProductController extends Controller
 
         $product = 'null';
         return view('admin.pages.user.product.add', compact('categories', 'product'));
+    }
+
+    public function delete($vid){
+        ModelsProduct::destroy($vid);
+        return redirect()->route('product-list');
     }
 }

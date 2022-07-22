@@ -11,7 +11,7 @@ class ModelsProduct extends Model
     use SoftDeletes;
     protected $table = 'product';
     protected $fillable = ['name', 'slug', 'description', 'technique_detail', 'platform_detail', 'safety_features',
-        'configuration', 'components', 'other_detail'];
+        'configuration', 'components', 'other_detail', 'product_image'];
 
     public function categories(){
         return $this->belongsToMany('App\Models\ModelsCategory', 'category_product');

@@ -3,13 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <ul class="top-menu text-white">
-                    <li>
-                        <i class="icon-phone">Telefon Numarası</i>
-                    </li>
-                    <li>
-                        <i class="icon-mail">Mail Adresi</i>
-                    </li>
+                <ul class="top-menu">
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">İletişim</a></li>
                 </ul>
             </div>
             <div class="col-md-6 d-none d-sm-block">
@@ -21,7 +17,9 @@
                         <li class="social-pinterest"><a href="#"><i class="fab fa-pinterest"></i></a></li>
                         <li class="social-vimeo"><a href="#"><i class="fab fa-vimeo"></i></a></li>
                         <li class="social-linkedin"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li class="social-dribbble"><a href="#"><i class="fab fa-dribbble"></i></a></li>
                         <li class="social-youtube"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li class="social-rss"><a href="#"><i class="fa fa-rss"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -32,18 +30,33 @@
 <!-- Header -->
 <header id="header" data-transparent="true" class="@yield('header-style') submenu-light">
     <div class="header-inner">
-        <div class="container">
+        <div class="container-fluid">
             <!--Logo-->
             <div id="logo"> <a href="/" class="text-warning">
                     <span class="logo-default font-size-lg">HAREKETLİ PLATFORM</span>
                     <span class="logo-dark font-size-lg">HAREKETLİ PLATFORM</span></a> </div>
             <!--End: Logo-->
+            <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
+                <form class="search-form" action="search-results-page.html" method="get">
+                    <input class="form-control" name="q" type="text" placeholder="Type & Search..." />
+                    <span class="text-muted">Start typing & press "Enter" or "ESC" to close</span>
+                </form>
+            </div>
+            <!-- end: search -->
+            <!--Header Extras-->
+            <div class="header-extras">
+                <ul>
+                    <li>
+                        <a id="btn-search" href="#"> <i class="icon-search"></i></a>
+                    </li>
+                </ul>
+            </div>
             <!--Navigation Resposnive Trigger-->
             <div id="mainMenu-trigger"> <a class="lines-button x"><span class="lines"></span></a> </div>
             <!--end: Navigation Resposnive Trigger-->
             <!--Navigation-->
             <div id="mainMenu">
-                <div class="container">
+                <div class="container-fluid">
                     <nav>
                         <ul>
                             <li><a href="/">Anasayfa</a></li>
@@ -54,10 +67,11 @@
                                     @endforeach
                                 </ul>
                             </li>
+                            <li><a href="index.html">Referanslar</a></li>
                             <li><a href="index.html">Çözümler</a></li>
-                            <li><a href="index.html">İletişim</a></li>
+                            <li><a href="index.html">Haberler</a></li>
                             <li><a href="{{route('request-education')}}" class="text-warning">Eğitim Başvurusu</a></li>
-                            <li><a href="index.html" class="btn btn-warning text-black-50">Servis Talebi</a></li>
+                            <li><a href="{{route('request-service')}}" class="btn btn-warning text-black-50">Servis Talebi</a></li>
                         </ul>
                     </nav>
                 </div>

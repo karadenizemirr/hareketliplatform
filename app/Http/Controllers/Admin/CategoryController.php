@@ -27,11 +27,11 @@ class CategoryController extends Controller
 
             $data = request()->only('name', 'slug');
 
-            if(request()->filled('slug')){
+            if(request('slug') == null){
                 $data['slug'] = str_slug(request('name'));
             }
 
-            $entry = ModelsCategory::create($data);
+            ModelsCategory::create($data);
 
 
             return redirect()->route('category-list');
