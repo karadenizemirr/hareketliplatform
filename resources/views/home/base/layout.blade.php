@@ -6,10 +6,10 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="INSPIRO" />
     <meta name="description" content="Themeforest Template Polo, html template">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="{{asset('favicon.ico')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Document title -->
-    <title>@yield('title', 'Hareketli Platform')</title>
+    <title>@yield('title') - CP Makina</title>
     <!-- Stylesheets & Fonts -->
     <link href="{{asset('assets/user/css/plugins.css')}}" rel="stylesheet">
     <link href="{{asset('assets/user/css/style.css')}}" rel="stylesheet">
@@ -23,6 +23,7 @@
     @include('home.base.header')
     @yield('page-title')
     @yield('content')
+    @include('home.base.footer')
 
 </div>
 <!-- end: Body Inner -->

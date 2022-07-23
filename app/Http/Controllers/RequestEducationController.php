@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\EducationRequestAdd;
 use App\Mail\EducationRequestMail;
 use App\Models\RequestEducation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class RequestEducationController extends Controller
@@ -26,7 +28,9 @@ class RequestEducationController extends Controller
                 'education_date' => 'required'
             ]);
             $data = \request()->only(['name', 'surname', 'phone_number', 'email', 'ident_no', 'degree', 'worksite', 'education_date']);
-            RequestEducation::create($data);
+            $requestEducation = RequestEducation::create($data);
+            // Send Mail
+            Mail::to('muhasebe@hareketliplatform.com')->send(new EducationRequestMail($requestEducation));
 
             return redirect()->route('request-education');
         }

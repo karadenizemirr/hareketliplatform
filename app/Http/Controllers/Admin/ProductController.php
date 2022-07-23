@@ -78,4 +78,10 @@ class ProductController extends Controller
         ModelsProduct::destroy($vid);
         return redirect()->route('product-list');
     }
+
+    public function getWithId($slug){
+        $product = ModelsProduct::where('slug', $slug)->firstOrFail();
+        $category = $product->categories()->distinct()->get();
+        return view('home.pages.product.detail', compact('product', 'category'));
+    }
 }

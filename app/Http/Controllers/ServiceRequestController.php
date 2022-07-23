@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ServiceRequestMail;
 use App\Models\FaultMedicine;
 use App\Models\ModelsCategory;
 use App\Models\ServiceRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ServiceRequestController extends Controller
 {
@@ -48,8 +50,8 @@ class ServiceRequestController extends Controller
                     $request_data['images'] = $image_name;
                 }
             }
-
-            ServiceRequest::create($request_data);
+            $serviceRequest = ServiceRequest::create($request_data);
+            Mail::to("mert.taskinel@hareketliplatform.com")->cc('teknik@hareketliplatform.com')->send(new ServiceRequestMail($serviceRequest));
             return redirect()->route('request-service');
         }else{
             return null;

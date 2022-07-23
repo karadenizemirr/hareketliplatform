@@ -37,8 +37,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
                             @foreach($requests as $request)
+                                <tr>
                                 <td>{{$request->name}} {{$request->surname}}</td>
                                 <td>{{$request->phone_number}}</td>
                                 <td>{{$request->fault_type}}</td>
@@ -52,8 +52,8 @@
                                         <span class="badge badge-danger" >Sil</span>
                                     </a>
                                 </td>
+                                </tr>
                             @endforeach
-                        </tr>
                         </tbody>
                     </table>
                 </div>

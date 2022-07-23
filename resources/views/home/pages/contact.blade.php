@@ -1,4 +1,7 @@
 @extends('home.base.layout')
+@section('title')
+    İletişim
+@endsection
 @section('content')
 
     <!-- CONTENT -->
@@ -54,12 +57,14 @@
                 <div class="col-lg-6">
                     <h3 class="text-uppercase">Adres Bilgileri</h3>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-9">
                             <address>
                                 <strong>Hareketli Platform.</strong><br>
-                                795 Folsom Ave, Suite 600<br>
-                                San Francisco, CA 94107<br>
-                                <abbr title="Phone">Telefon Numarası: (123) 456-7890
+                                Selahaddin Eyyubi Mah. 1625 Sok. No: 6
+                                34517 ESENYURT - İSTANBUL<br>
+                                <abbr title="Phone">Telefon Numarası: +90 212 245 1790 (PBX)<br>
+                                <abbr title="fax">Faks Numarası: +90 212 245 1794<br>
+                                    <abbr title="fax">GSM Numarası: +90 212 245 1794
                             </address>
                         </div>
                     </div>

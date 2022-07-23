@@ -16,7 +16,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="{{asset('/user/images/logo.png')}}" alt="Hareketliplatform" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"></span>
     </a>
 
@@ -102,28 +102,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('single-page-list')}}" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
-                        <p>Sayfa Oluşturucu</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('me-contact-add-update')}}" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
-                        <p>İletişim Ayarları</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
-                        <p>Sosyal Medya Ayarları</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
-                        <p>Genel Ayarlar</p>
-                    </a>
+                    <form action="{{'logout'}}" method="post">
+                        {{csrf_field()}}
+                        <button class="nav-link active" type="submit">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Çıkış Yap
+                                <i class="right fas fa-sign-out"></i>
+                            </p>
+                        </button>
+                    </form>
                 </li>
 
 

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\ContactModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -23,7 +25,8 @@ class ContactController extends Controller
                'message' => 'required'
             ]);
 
-            ContactModel::create($request_data);
+            $contact = ContactModel::create($request_data);
+            Mail::to('mert.taskinel@hareketliplatform.com')->cc('info@hareketliplatform.com')->send(new ContactMail($contact));
 
             return redirect()->route('contact');
         }

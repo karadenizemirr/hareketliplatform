@@ -1,43 +1,25 @@
 @extends('home.base.layout')
 @section('title')
-    Anasayfa
+    Çözümlerimiz
 @endsection
-@section('header-style')
-    dark
-@endsection
+
 @section('content')
-    <!-- Inspiro Slider -->
-    <div id="slider" class="inspiro-slider slider-fullscreen" data-height-xs="360">
-        <!-- Slide 1 -->
-        @foreach($sliders as $slider)
-            <div class="slide" style="
-        background-image:url('{{URL::asset("uploads/slider/" . $slider->image)}}');">
-                <div class="bg-overlay"></div>
-                <div class="container">
-                    <div class="slide-captions">
-                        <!-- Captions -->
-                        <h2 class="text-light m-b-10 text-uppercase">{{$slider->title}}</h2>
-                        <h4 class="m-b-40 text-light m-b-10">{{$slider->slogan}}</h4>
-                        @if($slider->button_text != null)
-                            <a href="{{$slider->button_link}}" class="btn btn-warning text-black-50"><i class="fa fa-check"></i>{{$slider->button_text}}</a>
-                        @endif
-                        <!-- end: Captions -->
-                    </div>
-
-                </div>
-
+    <section id="page-title" >
+        <div class="container">
+            <div class="page-title">
+                <h1>Çözümlerimiz
+                </h1>
+                <span>Sunmuş olduğumuz hizmetlere buradan ulaşabilirsiniz.</span>
             </div>
-        @endforeach
-        <!-- end: Slide 1 -->
-    </div>
-    <!--end: Inspiro Slider -->
-
+        </div>
+    </section>
+    <!-- end: Page title -->
     <!-- SERVICES -->
     <section>
         <div class="container">
             <div class="heading-text heading-section text-center">
                 <h2>Çözümler</h2>
-                <p>Sizlere sunduğumuz hizmetler.
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus.
                 </p>
             </div>
             <div class="row">
@@ -137,59 +119,20 @@
         </div>
     </section>
     <!-- end: SERVICES -->
-
-    <!-- Call to action -->
-    <section class="background-colored text-center background-black">
+    <section class="background-grey">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-9r">
-                    <h3 class="text-light">CP Makina Hizmetlerinden Yararlanmak İçin Bize Ulaşın</h3>
-                    <a href="{{route('contact')}}" class="btn btn-warning btn-outline text-black-50 btn-roundeded">Hemen İletişime Geçin</a>
+            <div class="row  ">
+                <div class="col-lg-12 text-center">
+                    <div class="description">
+                        <h2>İletişime Geç</h2>
+                        Bizimle iletişime geçerek hizmetlerimizden faydalanabilirisiniz.
+                    </div>
+                    <div class="button">
+                        <a href="{{route('contact')}}" class="btn btn-warning text-black-50" >İletişime Geç</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- end: Call to action -->
-    <!-- BLOG -->
-    <section class="p-b-40 background-grey">
-        <div class="container">
 
-            <div class="heading-text heading-section">
-                <h2>Bizden Haberler</h2>
-                <span class="lead">Bizimle ilgili en son haberlere ulaşın. </span>
-            </div>
-        </div>
-
-        <div id="blog">
-            <div class="container">
-                <!-- Blog -->
-                <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
-
-                    <!-- Post item-->
-                    @foreach($end_post as $ep)
-                        <div class="post-item border">
-                            <div class="post-item-wrap">
-                                <div class="post-image">
-                                    <a href="{{route('news-detail', $ep->slug)}}">
-                                        <img alt="" src="{{asset('uploads/news/'. $ep->image)}}">
-                                    </a>
-                                </div>
-                                <div class="post-item-description">
-                                    <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{$ep->created_at}}/span>
-                                    <h2><a href="{{route('news-detail', $ep->slug)}}">{{$ep->title}}
-                                        </a></h2>
-                                    <p>{{$ep->description}}.</p>
-
-                                    <a href="{{route('news-detail', $ep->slug)}}" class="item-link">Daha fazla oku. <i class="fa fa-arrow-right"></i></a>
-
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                    <!-- end: Post item-->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end: BLOG -->
 @endsection

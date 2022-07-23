@@ -2,26 +2,25 @@
 
 namespace App\Mail;
 
-use App\Models\RequestEducation;
+use App\Models\ServiceRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class EducationRequestMail extends Mailable
+class ServiceRequestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      *
-     * @var array;
      * @return void
      */
-    public $requestEducation;
-    public function __construct(RequestEducation $requestEducation)
+    public $serviceRequest;
+    public function __construct(ServiceRequest $serviceRequest)
     {
-        $this->$requestEducation = $requestEducation;
+        $this->serviceRequest = $serviceRequest;
     }
 
     /**
@@ -32,7 +31,7 @@ class EducationRequestMail extends Mailable
     public function build()
     {
         return $this
-            ->subject(config('app.name', '- Eğitim Başvurusu'))
-            ->view('email.html.education-request');
+            ->subject(config('app.name', '- Servis Başvurusu'))
+            ->view('email.html.service-request');
     }
 }

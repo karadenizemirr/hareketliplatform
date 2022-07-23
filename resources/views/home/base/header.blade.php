@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-md-6">
                 <ul class="top-menu">
-                    <li><a href="#">Hakkımızda</a></li>
-                    <li><a href="#">İletişim</a></li>
+                    <li><a href="{{route('contact')}}">İletişim</a></li>
                 </ul>
             </div>
             <div class="col-md-6 d-none d-sm-block">
@@ -33,13 +32,16 @@
         <div class="container-fluid">
             <!--Logo-->
             <div id="logo"> <a href="/" class="text-warning">
-                    <span class="logo-default font-size-lg">HAREKETLİ PLATFORM</span>
-                    <span class="logo-dark font-size-lg">HAREKETLİ PLATFORM</span></a> </div>
+                    <span class="logo-default logo-lg">
+                        <img src="{{asset('assets/user/images/logo.png')}}" alt="" style="width: 220px" ></span>
+                    <span class="logo-dark font-size-lg">
+                        <img src="{{asset('assets/user/images/logo.png')}}" alt="" style="width: 220px" class="p-3" >
+                    </span></a> </div>
             <!--End: Logo-->
             <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
-                <form class="search-form" action="search-results-page.html" method="get">
-                    <input class="form-control" name="q" type="text" placeholder="Type & Search..." />
-                    <span class="text-muted">Start typing & press "Enter" or "ESC" to close</span>
+                <form class="search-form" action="#" method="get">
+                    <input class="form-control" name="q" type="text" placeholder="Aramak istediğiniz kelime.." />
+                    <span class="text-muted">Aramak istediğiniz kelimee</span>
                 </form>
             </div>
             <!-- end: search -->
@@ -67,9 +69,9 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="index.html">Referanslar</a></li>
-                            <li><a href="index.html">Çözümler</a></li>
-                            <li><a href="index.html">Haberler</a></li>
+                            <li><a href="{{route('projects')}}">Referanslar</a></li>
+                            <li><a href="{{route('services')}}">Çözümler</a></li>
+                            <li><a href="{{route('news')}}">Haberler</a></li>
                             <li><a href="{{route('request-education')}}" class="text-warning">Eğitim Başvurusu</a></li>
                             <li><a href="{{route('request-service')}}" class="btn btn-warning text-black-50">Servis Talebi</a></li>
                         </ul>

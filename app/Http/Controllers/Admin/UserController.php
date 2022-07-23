@@ -60,4 +60,11 @@ class UserController extends Controller
         }
         return view('admin.pages.login');
     }
+
+    public function logout(){
+        \auth()->logout();
+        \request()->session()->flush();
+        \request()->session()->regenerate();
+        return redirect()->route('login');
+    }
 }

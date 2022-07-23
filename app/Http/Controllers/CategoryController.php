@@ -9,8 +9,8 @@ class CategoryController extends Controller
 {
     public function base($slug){
         $category = ModelsCategory::query()->where('slug', $slug)->firstOrFail();
-        $product = $category->product;
+        $products = $category->products;
 
-        return view('home.pages.category');
+        return view('home.pages.category', compact('products', 'category'));
     }
 }

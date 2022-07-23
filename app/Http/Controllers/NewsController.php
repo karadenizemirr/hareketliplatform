@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     public function base(){
-        return view('home.pages.news.index');
+        $posts = NewsModel::all()->sortByDesc('created_at');
+        return view('home.pages.news.index', compact('posts'));
     }
 
     public function adminAll(){
@@ -72,5 +73,10 @@ class NewsController extends Controller
     public function adminDelete($vid){
         NewsModel::destroy($vid);
         return redirect()->route('news-list');
+    }
+
+    public function getWithId($slug){
+        $item = NewsModel::query()->where('slug', $slug)->firstOrFail();
+        return view('home.pages.news.detail', compact('item'));
     }
 }

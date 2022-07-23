@@ -20,16 +20,24 @@ Route::get('/category/{slug}', [CategoryController::class, 'base'])->name('categ
 Route::match(['post', 'get'],'/contact', [\App\Http\Controllers\ContactController::class,'add'])->name('contact');
 Route::match(['post', 'get'], '/request-education', [\App\Http\Controllers\RequestEducationController::class, 'add'])->name('request-education');
 Route::match(['get','post'], '/request-service', [\App\Http\Controllers\ServiceRequestController::class, 'add'])->name('request-service');
+Route::get('/services', function (){return view('home.pages.services');})->name('services');
+Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'base'])->name('projects');
 // News
 Route::match(['get','post'], '/user/add', [\App\Http\Controllers\Admin\UserController::class, 'register'])->name('register');
 
 Route::group(['prefix' => 'news'], function (){
    Route::get('/', [\App\Http\Controllers\NewsController::class,'base'])->name('news');
+   Route::get('/detail/{slug}',[\App\Http\Controllers\NewsController::class, 'getWithId'])->name('news-detail');
+});
+
+Route::group(['prefix' => 'product'], function (){
+    Route::get('/{slug}', [\App\Http\Controllers\Admin\ProductController::class, 'getWithId'])->name('product-detail');
 });
 // Admin Pages
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
     Route::redirect('/', '/admin/login');
     Route::match(['get','post'],'/login', [\App\Http\Controllers\Admin\UserController::class,'login'])->name("login");
+    Route::post('/logout', [\App\Http\Controllers\Admin\UserController::class, 'logout'])->name('logout');
 
     Route::group(['middleware' => 'super_admin'], function (){
        Route::get('/home', [\App\Http\Controllers\Admin\HomeController::class, 'base']) -> name('home');
@@ -63,7 +71,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
         Route::group(['prefix' => 'news'], function(){
             Route::get('/', [\App\Http\Controllers\NewsController::class, 'adminAll'])->name('news-list');
             Route::match(['post', 'get'], '/add/{vid?}', [\App\Http\Controllers\NewsController::class, 'addOrUpdate'])->name('news-add-update');
-            Route::get('/delete/{$vid}', [\App\Http\Controllers\NewsController::class, 'adminDelete'])->name('news-delete');
+            Route::get('/delete/{vid}', [\App\Http\Controllers\NewsController::class, 'adminDelete'])->name('news-delete');
         });
         Route::group(['prefix' => 'project'], function(){
             Route::get('/', [\App\Http\Controllers\ProjectController::class, 'getAll'])->name('project-list');

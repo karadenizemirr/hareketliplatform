@@ -35,8 +35,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
                             @foreach($projects as $project)
+                                <tr>
                                 <td>{{$project->title}}</td>
                                 <td>{{$project->contractor}}</td>
                                 <td>{{$project->machine_type}}</td>
@@ -48,8 +48,8 @@
                                         <span class="badge badge-danger" >Sil</span>
                                     </a>
                                 </td>
+                                </tr>
                             @endforeach
-                        </tr>
                         </tbody>
                     </table>
                 </div>

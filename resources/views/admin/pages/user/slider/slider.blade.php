@@ -10,9 +10,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12 m-auto">
-
-                            <!-- /.card -->
-
+                            <div class="card-header">
+                                <a class="btn btn-info btn-round" href="{{route('slider-add')}}">
+                                    Slider Ekle
+                                </a>
+                            </div>
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">Slider Elemanları</h3>

@@ -16,6 +16,9 @@ return new class extends Migration
     {
         Schema::create('service_request', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('surname');
+            $table->string('email');
             $table->date('date');
             $table->string('degree_or_project');
             $table->string('block_front');
