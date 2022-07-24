@@ -1,4 +1,4 @@
-<!-- Topbar -->
+<!-- Topbar
 <div id="topbar" class="dark topbar-fullwidth">
     <div class="container">
         <div class="row">
@@ -25,7 +25,7 @@
         </div>
     </div>
 </div>
-<!-- end: Topbar -->
+end: Topbar -->
 <!-- Header -->
 <header id="header" data-transparent="true" class="@yield('header-style') submenu-light">
     <div class="header-inner">
