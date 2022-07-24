@@ -1,6 +1,6 @@
 @extends('home.base.layout')
 @section('title')
-    title
+    {{$product->name}}
 @endsection
 
 @section('content')

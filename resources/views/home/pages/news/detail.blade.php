@@ -42,7 +42,7 @@
                 <div class="post-item">
                     <div class="post-item-wrap">
                         <div class="post-item-description">
-                            {{$item->description}}
+                            {!! $item->description !!}
                         </div>
                     </div>
                 </div>
