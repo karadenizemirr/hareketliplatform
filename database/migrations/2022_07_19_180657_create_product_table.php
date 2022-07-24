@@ -25,7 +25,7 @@ return new class extends Migration
             $table->text('configuration');
             $table->text('components');
             $table->text('other_detail');
-            $table->boolean('is_home')->default(false);
+            $table->boolean('is_home')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
             //$table->softDeletes();

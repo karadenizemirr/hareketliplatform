@@ -35,7 +35,7 @@ Route::group(['prefix' => 'product'], function (){
 });
 // Admin Pages
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
-    Route::redirect('/', '/admin/login');
+    #Route::redirect('/', '/admin/login');
     Route::match(['get','post'],'/login', [\App\Http\Controllers\Admin\UserController::class,'login'])->name("login");
     Route::post('/logout', [\App\Http\Controllers\Admin\UserController::class, 'logout'])->name('logout');
 
