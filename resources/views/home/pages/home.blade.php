@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     <!-- Inspiro Slider -->
-    <div id="slider" class="inspiro-slider slider-fullscreen" data-height-xs="360">
+    <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="460">
         <!-- Slide 1 -->
         @foreach($sliders as $slider)
             <div class="slide" style="
@@ -33,32 +33,40 @@
     <!--end: Inspiro Slider -->
 
     <!-- BOXES -->
-    <section>
+    <!-- Page Content -->
+    <section id="page-content">
         <div class="container">
+            <div class="heading-text heading-section text-center">
+                <h2>Son Eklenler</h2>
+                <p>Son eklenen ürünler.
+                </p>
+            </div>
             <div class="row">
-                @foreach($products as $product)
-                    @if($product->is_home)
-                        <div class="col-lg-6">
-                            <div class="shop-promo-box text-end" style="
-                            background-position: top;
-                            background-image: url('{{URL::asset("uploads/product/" . $product->product_image)}}');
-                            ">
-                                <div style="background-color: rgb(16, 15, 15,0.7); color: white !important; padding: 50px;"
-                                     class="text-center rounded-2" >
-                                    <h2 class="text-white" >{{$product->name}}</h2>
-                                    @if(strlen($product->description))
-                                        {{substr($product->description, 0, 175)}}
-                                    @endif
-                                    <a class="btn btn-warning text-black-50 mt-2"
-                                       href="{{route('product-detail', $product->slug)}}">Ürünü İncele</a>
+                <div class="content col-lg-12">
+                    <div class="carousel" data-items="2" data-dots="true" data-lightbox="gallery">
+                        <!-- portfolio item -->
+                        @foreach($products as $product)
+                            <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
+                                <div class="portfolio-item-wrap">
+                                    <div class="portfolio-image">
+                                        <a href="#"><img src="{{asset('uploads/product/' . $product->product_image)}}" alt=""></a>
+                                    </div>
+                                    <div class="portfolio-description">
+                                        <a title="Resmi Büyült!" data-lightbox="gallery-image" href="{{asset('uploads/product/'. $product->product_image)}}"
+                                           class="btn btn-light btn-roundeded">Büyült</a>
+                                        <a title="Ürüne Git" data-lightbox="gallery-image" href="{{route('product-detail', $product->slug)}}"
+                                           class="btn btn-warning btn-roundeded">Ürüne Git</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endif
-                @endforeach
+                        @endforeach
+                        <!-- end: portfolio item -->
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!-- end: Page Content -->
     <!-- end: BOXES -->
 
     <!-- SERVICES -->

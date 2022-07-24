@@ -27,16 +27,17 @@
 </div>
 end: Topbar -->
 <!-- Header -->
-<header id="header" data-transparent="true" class="@yield('header-style') submenu-light">
+<header id="header" data-transparent="true" data-fullwidth="true" class="@yield('header-style') submenu-light">
     <div class="header-inner">
         <div class="container-fluid">
             <!--Logo-->
             <div id="logo"> <a href="/" class="text-warning">
                     <span class="logo-default logo-lg">
-                        <img src="{{asset('assets/user/images/logo.png')}}" alt="" style="width: 220px" ></span>
+                        <img src="{{asset('assets/user/images/logo.png')}}" alt="" style="width: 220px" class="mb-2" ></span>
                     <span class="logo-dark font-size-lg">
                         <img src="{{asset('assets/user/images/logo.png')}}" alt="" style="width: 220px" class="p-3" >
-                    </span></a> </div>
+                    </span></a>
+            </div>
             <!--End: Logo-->
             <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
                 <form class="search-form" action="#" method="get">
