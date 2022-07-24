@@ -47,7 +47,7 @@
                                      class="text-center rounded-2" >
                                     <h2 class="text-white" >{{$product->name}}</h2>
                                     @if(strlen($product->description))
-                                        {{substr($product->description, 0, 350)}}
+                                        {{substr($product->description, 0, 175)}}
                                     @endif
                                     <a class="btn btn-warning text-black-50 mt-2"
                                        href="{{route('product-detail', $product->slug)}}">Ürünü İncele</a>
