@@ -35,91 +35,70 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product additional tabs -->
-                <div class="tabs tabs-folder">
-                    <ul class="nav nav-tabs" id="myTab3" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active show"
-                               id="home-tab"
-                               data-bs-toggle="tab"
-                               href="#technique_detail"
-                               role="tab"
-                               aria-controls="home"
-                               aria-selected="false"><i class="fa fa-align-justify"></i>Teknik Detaylar</a></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               id="profile-tab"
-                               data-bs-toggle="tab"
-                               href="#platform_detail"
-                               role="tab"
-                               aria-controls="profile"
-                               aria-selected="true"><i class="fa fa-info"></i>Platform Detayları</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               id="profile-tab"
-                               data-bs-toggle="tab"
-                               href="#safety_features"
-                               role="tab"
-                               aria-controls="profile"
-                               aria-selected="true"><i class="fa fa-info"></i>Emniyet Özellikleri</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               id="profile-tab"
-                               data-bs-toggle="tab"
-                               href="#configuration"
-                               role="tab"
-                               aria-controls="profile"
-                               aria-selected="true"><i class="fa fa-info"></i>Yük Kapsitesi ve Konfigürasyon</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               id="profile-tab"
-                               data-bs-toggle="tab"
-                               href="#components"
-                               role="tab"
-                               aria-controls="profile"
-                               aria-selected="true"><i class="fa fa-info"></i>Bölüm ve Bileşenler</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               id="profile-tab"
-                               data-bs-toggle="tab"
-                               href="#other_detail"
-                               role="tab"
-                               aria-controls="profile"
-                               aria-selected="true"><i class="fa fa-info"></i>Diğer Detaylar</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent3">
-                        <div class="tab-pane fade active show" id="technique_detail" role="tabpanel" aria-labelledby="home-tab">
-                            {{$product->technique_detail}}
+                <!-- TABS -->
+                <div class="tabs tabs-vertical">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <ul class="nav flex-column nav-tabs" id="myTab4" role="tablist" aria-orientation="vertical">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#technique_detail" role="tab" aria-controls="technique_detail" aria-selected="true">
+                                        Teknik Özellikler</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#platform_detail" role="tab" aria-controls="platform_detail" aria-selected="false">
+                                        Platform Özellikleri
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#safety_features" role="tab" aria-controls="safety_features" aria-selected="false">
+                                        Emniyet Özellikleri
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#configuration" role="tab" aria-controls="safety_features" aria-selected="false">
+                                        Konfügrasyon Özellikleri
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#component" role="tab" aria-controls="safety_features" aria-selected="false">
+                                        Bileşen Özellikleri
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#other_detail" role="tab" aria-controls="safety_features" aria-selected="false">
+                                        Diğer Özellikler
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="tab-pane fade active show" id="platform_detail" role="tabpanel" aria-labelledby="home-tab">
-                            {{$product->platform_detail}}
-                        </div>
-                        <div class="tab-pane fade active show" id="safety_features" role="tabpanel" aria-labelledby="home-tab">
-                            {{$product->safety_feautres}}
-                        </div>
-                        <div class="tab-pane fade active show" id="technique_detail" role="tabpanel" aria-labelledby="home-tab">
-                            {{$product->technique_detail}}
-                        </div>
-                        <div class="tab-pane fade active show" id="configuration" role="tabpanel" aria-labelledby="home-tab">
-                            {{$product->configuration}}
-                        </div>
-                        <div class="tab-pane fade active show" id="components" role="tabpanel" aria-labelledby="home-tab">
-                            {{$product->components}}
-                        </div>
-                        <div class="tab-pane fade active show" id="other_detail" role="tabpanel" aria-labelledby="home-tab">
-                            {{$product->other_detail}}
+                        <div class="col-md-9">
+                            <div class="tab-content" id="myTabContent4">
+                                <div class="tab-pane fade show active" id="technique_detail" role="tabpanel" aria-labelledby="home-tab">
+                                    {!! $product->technique_detail !!}
+                                </div>
+                                <div class="tab-pane fade" id="platform_detail" role="tabpanel" aria-labelledby="profile-tab">
+                                    {!! $product->platform_detail !!}
+                                 </div>
+                                <div class="tab-pane fade" id="safety_features" role="tabpanel" aria-labelledby="contact-tab">
+                                    {!! $product->safety_features !!}
+                                </div>
+                                <div class="tab-pane fade" id="configuration" role="tabpanel" aria-labelledby="contact-tab">
+                                    {!! $product->configuration !!}
+                                </div>
+                                <div class="tab-pane fade" id="component" role="tabpanel" aria-labelledby="contact-tab">
+                                    {!! $product->component !!}
+                                </div>
+                                <div class="tab-pane fade" id="other_detail" role="tabpanel" aria-labelledby="contact-tab">
+                                    {!! $product->other_detail !!}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- end: Product additional tabs -->
+
             </div>
         </div>
     </section>
     <!-- end: SHOP PRODUCT PAGE -->
 @endsection
+

@@ -40,6 +40,7 @@
                     @if($product->is_home)
                         <div class="col-lg-6">
                             <div class="shop-promo-box text-end" style="
+                            background-position: top;
                             background-image: url('{{URL::asset("uploads/product/" . $product->product_image)}}');
                             ">
                                 <div style="background-color: rgb(16, 15, 15,0.7); color: white !important; padding: 50px;"
