@@ -71,9 +71,8 @@ end: Topbar -->
                             </li>
                             <li><a href="{{route('projects')}}">Referanslar</a></li>
                             <li><a href="{{route('services')}}">Çözümler</a></li>
-                            <li><a href="{{route('contact')}}">İletişim</a></li>
                             <li><a href="{{route('news')}}">Haberler</a></li>
-                            <li><a href="{{route('contact')}}">İletişiö</a></li>
+                            <li><a href="{{route('contact')}}">İletişim</a></li>
                             <li><a href="{{route('request-education')}}" class="text-warning">Eğitim Başvurusu</a></li>
                             <li><a href="{{route('request-service')}}" class="btn btn-warning text-black-50">Servis Talebi</a></li>
                         </ul>
