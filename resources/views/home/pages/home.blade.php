@@ -32,6 +32,34 @@
     </div>
     <!--end: Inspiro Slider -->
 
+    <!-- BOXES -->
+    <section>
+        <div class="container">
+            <div class="row">
+                @foreach($products as $product)
+                    @if($product->is_home)
+                        <div class="col-lg-6">
+                            <div class="shop-promo-box text-end" style="
+                            background-image: url('{{URL::asset("uploads/product/" . $product->product_image)}}');
+                            ">
+                                <div style="background-color: rgb(16, 15, 15,0.7); color: white !important; padding: 50px;"
+                                     class="text-center rounded-2" >
+                                    <h2 class="text-white" >{{$product->name}}</h2>
+                                    @if(strlen($product->description))
+                                        {{substr($product->description, 0, 350)}}
+                                    @endif
+                                    <a class="btn btn-warning text-black-50 mt-2"
+                                       href="{{route('product-detail', $product->slug)}}">Ürünü İncele</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- end: BOXES -->
+
     <!-- SERVICES -->
     <section>
         <div class="container">
@@ -192,4 +220,16 @@
         </div>
     </section>
     <!-- end: BLOG -->
+    <!--Modal Cookie-->
+    <div id="cookieNotify" class="modal-strip cookie-notify background-dark" data-delay="3000" data-expire="1" data-cookie-name="cookiebar2021_1" data-cookie-enabled="true">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 text-sm-center sm-center sm-m-b-10 m-t-5">Sizlere daha iyi hizmet verebilmek için sitemizde çerezler kullanılmaktadır.</div>
+                <div class="col-lg-4 text-end sm-text-center sm-center">
+                    <button type="button" class="btn btn-roundeded btn-light btn-sm modal-confirm">Anladım</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End: Modal Cookie-->
 @endsection
