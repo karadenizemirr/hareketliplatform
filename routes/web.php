@@ -23,7 +23,7 @@ Route::match(['get','post'], '/request-service', [\App\Http\Controllers\ServiceR
 Route::get('/services', function (){return view('home.pages.services');})->name('services');
 Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'base'])->name('projects');
 // News
-Route::match(['get','post'], '/user/add', [\App\Http\Controllers\Admin\UserController::class, 'register'])->name('register');
+
 
 Route::group(['prefix' => 'news'], function (){
    Route::get('/', [\App\Http\Controllers\NewsController::class,'base'])->name('news');
@@ -35,8 +35,9 @@ Route::group(['prefix' => 'product'], function (){
 });
 // Admin Pages
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
-    #Route::redirect('/', '/admin/login');
+    Route::redirect('/', '/admin/login');
     Route::match(['get','post'],'/login', [\App\Http\Controllers\Admin\UserController::class,'login'])->name("login");
+    Route::match(['get','post'], '/user/add', [\App\Http\Controllers\Admin\UserController::class, 'register'])->name('register');
     Route::post('/logout', [\App\Http\Controllers\Admin\UserController::class, 'logout'])->name('logout');
 
     Route::group(['middleware' => 'super_admin'], function (){
