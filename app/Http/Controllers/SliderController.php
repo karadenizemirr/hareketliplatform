@@ -17,7 +17,7 @@ class SliderController extends Controller
 
         if(\request()->isMethod('POST')){
             // Add Slider
-            $req_data = \request()->only('title', 'slogan', 'button_text', 'button_link', 'image');
+            $req_data = \request()->only(['title', 'slogan', 'button_text', 'button_link', 'image']);
             $this->validate(\request(), [
                'title' => 'required',
                'slogan' => 'required',
