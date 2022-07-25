@@ -13,35 +13,70 @@ class SliderController extends Controller
 
     }
 
-    public function adminAdd(){
+    public function adminAdd($vid=0){
 
-        if(\request()->isMethod('POST')){
-            // Add Slider
-            $req_data = \request()->only(['title', 'slogan', 'button_text', 'button_link', 'image']);
-            $this->validate(\request(), [
-               'title' => 'required',
-               'slogan' => 'required',
-               'image' => 'required'
-            ]);
-
-            if(\request()->hasFile('image')){
-                $image = \request()->file('image');
-
+        if($vid == 0){
+            if(\request()->isMethod('POST')){
+                // Add Slider
+                $req_data = \request()->only(['title', 'slogan', 'button_text', 'button_link', 'image']);
                 $this->validate(\request(), [
-                    'image' => 'image|mimes:jpg,jpeg,png'
+                    'title' => 'required',
+                    'slogan' => 'required',
+                    'image' => 'required'
                 ]);
 
-                if($image->isValid()){
-                    $image_name = time() . "-". str_slug($req_data['title']) . "." . $image->extension();
-                    $image->move('uploads/slider', $image_name);
-                    $req_data['image'] = $image_name;
+                if(\request()->hasFile('image')){
+                    $image = \request()->file('image');
+
+                    $this->validate(\request(), [
+                        'image' => 'image|mimes:jpg,jpeg,png'
+                    ]);
+
+                    if($image->isValid()){
+                        $image_name = time() . "-". str_slug($req_data['title']) . "." . $image->extension();
+                        $image->move('uploads/slider', $image_name);
+                        $req_data['image'] = $image_name;
+                    }
+
+                    SliderModel::create($req_data);
+                    return redirect()->route('slider-list');
+                }
+            }
+        }else if($vid > 0){
+            // Update
+            // Get Slider Data
+            $slider = SliderModel::find($vid);
+            if(request()->isMethod('POST')){
+                $slider_data = request()->only('title', 'slogan', 'button_text', 'button_link', 'button_text', 'image');
+                // Slider Validate
+                $this->validate(\request(), [
+                    'title' => 'required',
+                    'slogan' => 'required'
+                ]);
+
+                if(\request()->hasFile('image')){
+                    $image = \request()->file('image');
+
+                    $this->validate(\request(), [
+                        'image' => 'image|mimes:jpg,jpeg,png'
+                    ]);
+
+                    if($image->isValid()){
+                        $image_name = time() . "-". str_slug($slider_data['title']) . "." . $image->extension();
+                        $image->move('uploads/slider', $image_name);
+                        $slider_data['image'] = $image_name;
+                    }
+                    $update_slider = SliderModel::where('id', $vid)->firstOrFail();
+                    $update_slider->update($slider_data);
+
+                    return redirect()->route('slider-list');
                 }
 
-                SliderModel::create($req_data);
-                return redirect()->route('slider-list');
             }
+            return view("admin.pages.user.slider.add", compact('slider'));
         }
-        return view("admin.pages.user.slider.add");
+        $slider = 'null';
+        return view("admin.pages.user.slider.add" ,compact('slider'));
     }
 
     public function adminDelete($vid){

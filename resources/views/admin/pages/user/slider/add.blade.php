@@ -1,6 +1,6 @@
 @extends('admin.base.layout')
 @section('title')
-    Slide Ekle
+    Slider İşlemleri
 @endsection
 
 @section('content')
@@ -9,7 +9,10 @@
             <!-- general form elements -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Slider Ekleme Formu</h3>
+                    <h3 class="card-title">
+                        {{$slider != 'null' ? "Slider Güncelleme Formu" : "Slider Ekleme Formu"}}
+
+                    </h3>
                 </div>
                 @include('admin.base.errors')
                 <!-- /.card-header -->
@@ -19,30 +22,46 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Slider Başlığı</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Slider başlığı..">
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Slider başlığı.."
+                            value="{{$slider !== 'null' ? $slider->title : null}}"
+                            >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Slogan</label>
-                            <input type="text" class="form-control" id="slogan" name="slogan" placeholder="Slogan.">
+                            <input type="text" class="form-control" id="slogan" name="slogan" placeholder="Slogan."
+                                   value="{{$slider !== 'null' ? $slider->slogan : null}}"
+                            >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Buton Metni</label>
-                            <input type="text" class="form-control" id="button_text" name="button_text" placeholder="Buton kullanmak istemiyorsanız boş bırakın">
+                            <input type="text" class="form-control" id="button_text" name="button_text"
+                                   placeholder="Buton kullanmak istemiyorsanız boş bırakın"
+                                   value="{{$slider !== 'null' ? $slider->button_text : null}}"
+                            >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Buton Linki</label>
-                            <input type="text" class="form-control" id="button_link" name="button_link" placeholder="Buton kullanmak istemiyorsanız boş bırakın.">
+                            <input type="text" class="form-control" id="button_link" name="button_link"
+                                   placeholder="Buton kullanmak istemiyorsanız boş bırakın."
+                                   value="{{$slider !== 'null' ? $slider->button_link : null}}"
+                            >
                         </div>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="image" name="image">
                             <label class="custom-file-label" for="image">Dosya Seçiniz</label>
+                        </div>
+                        <div class="slider_image">
+                            <img src="{{asset('uploads/slider/' . $slider !== 'null' ? $slider->image : null )}}"
+                                 alt="" class="w-25">
                         </div>
                     </div>
 
                     <!-- /.card-body -->
 
                     <div class="card-footer text-center">
-                        <button type="submit" class="btn btn-primary">Ekle</button>
+                        <button type="submit" class="btn btn-primary">
+                            {{$slider != 'null' ? "Güncelle" : "Ekle"}}
+                        </button>
                     </div>
                 </form>
             </div>

@@ -47,6 +47,11 @@
                                                         <span class="badge badge-danger" >Sil</span>
                                                     </a>
                                                 </td>
+                                                <td>
+                                                    <a href="{{route('slider-add', $slider->id)}}">
+                                                        <span class="badge badge-success" >Düzenle</span>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>

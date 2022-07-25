@@ -81,7 +81,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
         });
         Route::group(['prefix'=> 'slider'], function (){
            Route::get('/', [\App\Http\Controllers\SliderController::class, 'base'])->name('slider-list');
-           Route::match(['get','post'],'/add', [\App\Http\Controllers\SliderController::class, 'adminAdd'])->name('slider-add');
+           Route::match(['get','post'],'/add/{vid?}', [\App\Http\Controllers\SliderController::class, 'adminAdd'])->name('slider-add');
            Route::get('/delete{vid}', [\App\Http\Controllers\SliderController::class, 'adminDelete'])->name('slider-delete');
         });
 
