@@ -50,10 +50,12 @@
                             <input type="file" class="custom-file-input" id="image" name="image">
                             <label class="custom-file-label" for="image">Dosya Seçiniz</label>
                         </div>
-                        <div class="slider_image">
-                            <img src="{{asset('uploads/slider/' . $slider !== 'null' ? $slider->image : null )}}"
-                                 alt="" class="w-25">
-                        </div>
+                        @if($slider !== 'null')
+                            <div class="slider_image">
+                                <img src="{{asset('uploads/slider/' . $slider !== 'null' ? $slider->image : null )}}"
+                                     alt="" class="w-25">
+                            </div>
+                        @endif
                     </div>
 
                     <!-- /.card-body -->
