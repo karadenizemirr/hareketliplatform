@@ -43,7 +43,7 @@
             </div>
             <div class="row">
                 <div class="content col-lg-12">
-                    <div class="carousel" data-items="2" data-dots="true" data-lightbox="gallery">
+                    <div class="carousel" data-items="3" data-dots="true" data-lightbox="gallery">
                         <!-- portfolio item -->
                         @foreach($products as $product)
                             <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
