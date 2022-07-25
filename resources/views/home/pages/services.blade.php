@@ -18,9 +18,6 @@
     <section>
         <div class="container">
             <div class="heading-text heading-section text-center">
-                <h2>Çözümler</h2>
-                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus.
-                </p>
             </div>
             <div class="row">
                 <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="0">
