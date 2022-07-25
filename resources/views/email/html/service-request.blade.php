@@ -51,6 +51,9 @@
                 Servis listesine git.
             </a>
         </div>
+        <div>
+            {{$serviceRequest}}
+        </div>
         <div class="footer">
             <p>{{config('app.name')}}</p>
         </div>

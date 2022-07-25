@@ -51,6 +51,9 @@
                 Eğitim Listene Git.
             </a>
         </div>
+        <div>
+            {{$requestEducation}}
+        </div>
         <div class="footer">
             <p>{{config('app.name')}}</p>
         </div>

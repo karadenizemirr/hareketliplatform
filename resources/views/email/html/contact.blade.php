@@ -51,9 +51,13 @@
                 Gelen kutusuna git.
             </a>
         </div>
+        <div>
+            {{$contact}}
+        </div>
         <div class="footer">
             <p>{{config('app.name')}}</p>
         </div>
+
     </div>
 </div>
 </body>

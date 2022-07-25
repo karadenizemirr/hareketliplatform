@@ -26,7 +26,7 @@ class ContactController extends Controller
             ]);
 
             $contact = ContactModel::create($request_data);
-            Mail::to('mert.taskinel@hareketliplatform.com')->send(new ContactMail($contact));
+            Mail::to('mert.taskinel@hareketliplatform.com')->cc('info@hareketliplatform.com')->send(new ContactMail($contact));
 
             return redirect()->route('contact');
         }

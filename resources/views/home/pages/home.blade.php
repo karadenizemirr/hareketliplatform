@@ -37,9 +37,7 @@
     <section id="page-content">
         <div class="container">
             <div class="heading-text heading-section text-center">
-                <h2>Son Eklenler</h2>
-                <p>Son eklenen ürünler.
-                </p>
+
             </div>
             <div class="row">
                 <div class="content col-lg-12">
