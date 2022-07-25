@@ -27,6 +27,21 @@ class ProductController extends Controller
             if (request()->isMethod('POST')){
                 $request_data = request()->only('name', 'slug', 'description', 'technique_detail', 'platform_detail',
                     'safety_features', 'configuration', 'components','other_detail', 'product_image');
+
+                if(\request()->hasFile('product_image')){
+                    $this->validate(request(), [
+                        'product_image' => 'image|mimes:jpg,png,jpeg,gif'
+                    ]);
+
+                    $product_image = request()->file('product_image');
+                    $image_name = str_slug(request('name')) . ".". $product_image->extension();
+
+                    if($product_image->isValid()){
+                        $product_image->move('uploads/product', $image_name);
+                        $request_data['product_image'] = $image_name;
+                    }
+                }
+
                 #redirect()->route('product-list');
                 $add_product = ModelsProduct::where('id', $vid)->firstOrFail();
                 $add_product->update($request_data);

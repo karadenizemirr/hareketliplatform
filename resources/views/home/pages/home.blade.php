@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     <!-- Inspiro Slider -->
-    <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="460">
+    <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="560">
         <!-- Slide 1 -->
         @foreach($sliders as $slider)
             <div class="slide" style="
